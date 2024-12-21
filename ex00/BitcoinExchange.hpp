@@ -6,7 +6,7 @@
 /*   By: skiam <skiam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 13:51:48 by ahayon            #+#    #+#             */
-/*   Updated: 2024/12/21 20:05:09 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/21 22:18:45 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <string>
 #include <cstdlib>
 #include <sstream>
+#include <limits.h>
+
 #define MIN_YEAR 2009
 #define MAX_YEAR 2024
 #define JANUARY 1

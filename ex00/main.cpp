@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skiam <skiam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 13:51:35 by ahayon            #+#    #+#             */
-/*   Updated: 2024/12/21 20:36:40 by eltouma          ###   ########.fr       */
+/*   Created: 2024/12/21 22:15:48 by eltouma           #+#    #+#             */
+/*   Updated: 2024/12/21 22:23:50 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	checkDateFormat(std::string date)
 
 int	isLeap(int year)
 {
-	if (!(year % 4) && (year % 100 || !(year % 400))) 
+	if (!(year % 4) && (year % 100 || !(year % 400)))
 		return (1);
 	return (0);
 }
@@ -120,10 +120,8 @@ void	loadDB(std::map<std::string, float> &btc, std::string filename)
 	}
 }
 
-void	loadInput(std::map<std::string, float> &btc, std::string input)
-{	
-	std::ifstream	file(input.c_str());
-	std::string		line;
+void	parseLine(std::map<std::string, float> &btc, std::string line)
+{
 	std::map<std::string, float>::iterator it;
 	char	*end;
 	std::string::size_type	pipe;
@@ -131,26 +129,38 @@ void	loadInput(std::map<std::string, float> &btc, std::string input)
 	float	val;
 	int	n;
 
+	pipe = line.find('|');
+	if (pipe == std::string::npos)
+		{ std::cerr << "Error: Bad input => '" << line << "'" << std::endl; return; }
+	date = line.substr(0, pipe - 1);
+	n = checkDate(date);
+	if (n)
+		{ printError(n, date); return; }
+	val = strtof((line.substr(pipe + 1)).c_str(), &end);
+	if (*end != '\0')
+		{ std::cerr << "Error: wrong type" << std::endl; return; }
+	if (val < 0)
+		{ std::cerr << "Error: not a positive number." << std::endl; return; }
+	if (static_cast<long>(val) > INT_MAX)
+		{ std::cerr << "Error: too large number." << std::endl; return; }
+	it = btc.lower_bound(date);
+	if (it == btc.end() || it->first != date)
+		--it;
+	std::cout << date << " => " << val << " = " << val * it->second << std::endl;
+}
+
+void	loadInput(std::map<std::string, float> &btc, std::string input)
+{	
+	std::ifstream	file(input.c_str());
+	std::string		line;
+
 	if (handleFileError(&file))
 		return ;
-	if (getline(file, line)) {};
+	if (getline(file, line))
+		if (line != "date | value")
+			parseLine(btc, line);
 	while (getline(file, line, '\n'))
-	{
-		pipe = line.find('|');
-		if (pipe == std::string::npos)
-		{ std::cerr << "Error: Bad input => '" << line << "'" << std::endl; continue; }
-		date = line.substr(0, pipe - 1);
-		n = checkDate(date);
-		if (n)
-		{ printError(n, date); continue; }
-		val = strtof((line.substr(pipe + 1)).c_str(), &end);
-		if (*end != '\0')
-		{ std::cerr << "Error: wrong type" << std::endl; continue; }
-		it = btc.lower_bound(date);
-		if (it == btc.end() || it->first != date)
-			--it;
-		std::cout << date << " => " << val << " = " << val * it->second << std::endl;
-	}
+		parseLine(btc, line);
 }
 
 int	main(int argc, char **argv)
