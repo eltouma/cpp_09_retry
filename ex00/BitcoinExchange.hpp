@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skiam <skiam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 13:51:48 by ahayon            #+#    #+#             */
-/*   Updated: 2024/12/21 22:18:45 by eltouma          ###   ########.fr       */
+/*   Created: 2024/12/21 22:58:13 by eltouma           #+#    #+#             */
+/*   Updated: 2024/12/22 00:17:27 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@
 #define MIN_YEAR 2009
 #define MAX_YEAR 2024
 #define JANUARY 1
+#define LEAP 29
 #define DECEMBER 12
 #define MIN_DAY 1
 #define EVEN 30
 #define ODD 31
 
-void	loadInputFile(std::string filename);
-void	loadDataBase(std::string filename);
-void	error_msg(std::string line, int code);
-bool	check_date(std::string date);
-bool	check_format(std::string date);
+int	checkDateFormat(std::string date);
+int	isLeap(int year);
+void	printError(int n, std::string date);
+int	checkDate(std::string date);
+void	loadDB(std::map<std::string, float> &btc, std::string filename);
+void	loadInput(std::map<std::string, float> &btc, std::string input);
