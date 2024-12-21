@@ -6,26 +6,15 @@
 /*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 13:52:02 by ahayon            #+#    #+#             */
-/*   Updated: 2024/12/06 13:19:45 by ahayon           ###   ########.fr       */
+/*   Updated: 2024/12/21 17:16:54 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange() {}
 
-BitcoinExchange::~BitcoinExchange() {}
-
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& src) {
-	*this = src;
-}
-
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& rhs) {
-	this->_dataBase = rhs._dataBase;
-	return *this;
-}
-
-void	BitcoinExchange::loadDataBase(std::string filename) {
+/*
+void	loadDataBase(std::string filename) {
 	std::ifstream	file(filename.c_str());
 	if (!file.is_open()) {
 		std::cerr << "Error opening the .csv file" << std::endl;
@@ -41,7 +30,7 @@ void	BitcoinExchange::loadDataBase(std::string filename) {
 	}
 }
 
-bool	BitcoinExchange::check_format(std::string date) {
+bool	check_format(std::string date) {
 	
 	if (date.size() != 10)
         return false; 
@@ -57,7 +46,7 @@ bool	BitcoinExchange::check_format(std::string date) {
 	return true;
 }
 
-bool	BitcoinExchange::check_date(std::string date) {
+bool	check_date(std::string date) {
 
 	if (!check_format(date))
 		return false;
@@ -71,7 +60,7 @@ bool	BitcoinExchange::check_date(std::string date) {
 	return true;
 }
 
-void	BitcoinExchange::loadInputFile(std::string filename) {
+void	loadInputFile(std::string filename) {
 	
 	std::ifstream	file(filename.c_str());
 	std::string		line;
@@ -105,7 +94,4 @@ void	BitcoinExchange::loadInputFile(std::string filename) {
 		}
 	}
 }
-
-const std::map<std::string, float>&	BitcoinExchange::get_cont() const {
-	return this->_dataBase;
-}
+*/

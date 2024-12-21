@@ -1,24 +1,33 @@
-SRC =	main.cpp BitcoinExchange.cpp
-OBJ = $(SRC:.cpp=.o)
-CC = c++
-RM = rm -f
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
-
 NAME = btc
+
+CC = c++ -Wall -Wextra -Werror -std=c++98 -g3
+MAKEFLAGS += --no-print-directory
+
+GREEN := \e[32m
+RESET :=\e[0m
+
+SRCS = BitcoinExchange.cpp main.cpp
+
+OBJS_PATH = objs/
+
+OBJS = $(addprefix $(OBJS_PATH), $(SRCS:%.cpp=%.o))
+
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+$(OBJS_PATH)%.o: %.cpp
+	@mkdir -p $(OBJS_PATH)
+	$(CC) -c $< -o $@
 
-%.o: %.cpp
-	$(CC) $(CPPFLAGS) -c $< -o $@
+$(NAME): $(OBJS)
+	@echo "\nCompilation btc: $(GREEN)success$(RESET)\n"
+	$(CC) $(OBJS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	/bin/rm -rf $(OBJS) $(OBJS_PATH)
+	@echo "\nbtc removed: $(GREEN)success$(RESET)\n"
+fclean:	clean
+	/bin/rm -rf ${NAME}
 
-fclean: clean
-	$(RM) $(NAME)
-
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re
