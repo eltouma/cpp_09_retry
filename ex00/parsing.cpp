@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 22:15:48 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 00:19:41 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 00:47:39 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,6 @@ int	checkDate(std::string date)
 			return (4);
 		if (day > LEAP)
 			return (5);
-
-//		else if (day > MIN_DAY && !isLeap(year))
-//			return (4);
 		return (0);
 	}
 	if (day < MIN_DAY || (!(month % 2) && day > EVEN))
