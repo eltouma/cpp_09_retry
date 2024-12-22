@@ -55,7 +55,7 @@ char    *isString(int argc, char **argv, char *input, char *&buff)
                 }
                 buff = new char[str.size() + 1];
                 dup = strcpy(buff, str.c_str());
-                input = strtok(buff, " ");
+                input = strtok(dup, " ");
         }
         else
                 input = strtok(argv[1], " ");

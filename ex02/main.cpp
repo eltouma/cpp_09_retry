@@ -162,7 +162,7 @@ void	mergeInsert(std::vector<int> &vect, int sizeElement)
 	printLabel(vect, sizeElement, nbOfGroups);
 	initPending(vect, sizeElement, pending, nbOfGroups);
 	if (!pending.size())
-		std::cout << "No pend - no insertions. Move on" << std::endl;
+		std::cout << "\nNo pend - no insertions. Move on" << std::endl;
 	else
 	{
 		std::cout << std::endl;
