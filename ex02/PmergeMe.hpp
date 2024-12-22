@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:08:34 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 18:38:50 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 18:42:57 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void    draw_tab(const std::string& str);
 int	isSorted(std::vector<int> vect);
 void	mergeInsert(std::vector<int> &vect, int sizeElement);
 void	sortPairs(std::vector<int> &vect, int sizeElement);
-void	initPending(std::vector<int> &vect, int sizeElement, std::vector<std::pair<std::vector<int>, int> > &pending, int nbOfGroups);
+void	initPending(std::vector<int> &vect, int sizeElement, std::vector<std::pair<std::vector<int>, int> > &pending);
 std::vector<int>::iterator	binarySearch(std::vector<int>::iterator start, std::vector<int>::iterator end, int sizeElement, int valToFind);
 int	jacobNumber(int n);
 
