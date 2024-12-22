@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:08:34 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 17:26:05 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 17:39:10 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,21 @@ int	checkInput(char *s, T &sequence);
 template <class T, class I>
 int	handleDuplicate(T &sequence, I it, char *buff);
 
+template <class T>
+void	printSequence(T &sequence);
 
 //int	checkInput(char *s, std::vector<int> &vect);
-int	ft_strlen(char *str);
-char    *isString(int argc, char **argv, char *input, char *&buff);
 //int	handleDuplicate(std::vector<int> vect, std::vector<int>::iterator it, char *buff);
-void	printVect(std::vector<int> vect);
+// void	printVect(std::vector<int> vect);
 void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups);
 void	printPending(std::vector<std::pair<std::vector<int>, int> > pending);
 void	printOdd(std::vector<int> vect, int sizeElement);
+
+
+int	ft_strlen(char *str);
+char    *isString(int argc, char **argv, char *input, char *&buff);
 void	printLabel(int sizeElement, int nbOfGroups);
 void    draw_tab(const std::string& str);
 
 #include "checkParams.tpp"
+#include "print.tpp"

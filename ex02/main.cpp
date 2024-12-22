@@ -6,12 +6,13 @@
 /*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:03:22 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 17:34:45 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 17:42:52 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include "checkParams.tpp"
+#include "print.tpp"
 
 int	jacobNumber(int n)
 {
@@ -228,9 +229,9 @@ int	main(int argc, char **argv)
 	std::cout << "\n\n------------------------------------------------------------------------------------------------\n" << std::endl;
 	draw_tab("Final result");
 	std::cout << "Original vector" << std::endl;
-	printVect(tmp);
+	printSequence(tmp);
 	std::cout << "Current vector" << std::endl;
-	printVect(vect);
+	printSequence(vect);
 	if (!isSorted(vect))
 		std::cout << "List is successfully sorted 🥳\n";
 	std::cout << "\n\n------------------------------------------------------------------------------------------------\n" << std::endl;
@@ -239,7 +240,10 @@ int	main(int argc, char **argv)
 	if (handleDuplicate(deq, itD, NULL))
 		return (std::cerr << "Error\nWrong input: duplicate" << std::endl, 1);
 	else
+	{
+		printSequence(deq);
 		std::cerr << "Deque est triee" << std::endl;
+	}
 	if (buff)
 		delete [] buff;
 }

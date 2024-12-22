@@ -6,7 +6,7 @@
 /*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:03:22 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 01:24:43 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 17:39:33 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,14 @@ void	printOdd(std::vector<int> vect, int sizeElement)
 	std::cout << std::endl;
 }
 
+/*
 void	printVect(std::vector<int> vect)
 {
 	for (size_t i = 0; i < vect.size(); i++)
 		std::cout << vect[i] << " ";
 	std::cout << "\n\n";
-
 }
+*/
 
 void	draw_tab(const std::string& str)
 {
