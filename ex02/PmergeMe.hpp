@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:08:34 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 17:39:10 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 18:38:50 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,32 @@ template <class T, class I>
 int	handleDuplicate(T &sequence, I it, char *buff);
 
 template <class T>
-void	printSequence(T &sequence);
+void	printSequence(T sequence);
 
-//int	checkInput(char *s, std::vector<int> &vect);
-//int	handleDuplicate(std::vector<int> vect, std::vector<int>::iterator it, char *buff);
-// void	printVect(std::vector<int> vect);
-void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups);
-void	printPending(std::vector<std::pair<std::vector<int>, int> > pending);
-void	printOdd(std::vector<int> vect, int sizeElement);
+template <class T>
+void	printGroup(T sequence, int sizeElement, int nbOfGroups);
 
+template <class T>
+void	printOdd(T sequence, int sizeElement);
+
+template <
+    template <class, class> class OuterContainer,
+    template <class, class> class InnerContainer,
+    class T
+>
+void printPending(OuterContainer<std::pair<InnerContainer<T, std::allocator<T> >, int>, std::allocator<std::pair<InnerContainer<T, std::allocator<T> >, int> > > &pending);
 
 int	ft_strlen(char *str);
 char    *isString(int argc, char **argv, char *input, char *&buff);
 void	printLabel(int sizeElement, int nbOfGroups);
 void    draw_tab(const std::string& str);
+
+int	isSorted(std::vector<int> vect);
+void	mergeInsert(std::vector<int> &vect, int sizeElement);
+void	sortPairs(std::vector<int> &vect, int sizeElement);
+void	initPending(std::vector<int> &vect, int sizeElement, std::vector<std::pair<std::vector<int>, int> > &pending, int nbOfGroups);
+std::vector<int>::iterator	binarySearch(std::vector<int>::iterator start, std::vector<int>::iterator end, int sizeElement, int valToFind);
+int	jacobNumber(int n);
 
 #include "checkParams.tpp"
 #include "print.tpp"

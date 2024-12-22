@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   print.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 16:03:22 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 17:39:33 by eltouma          ###   ########.fr       */
+/*   Created: 2024/12/22 18:34:07 by eltouma           #+#    #+#             */
+/*   Updated: 2024/12/22 18:34:08 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "PmergeMe.hpp"
 
+/*
 void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups)
 {
 	int	middle;
@@ -33,6 +35,7 @@ void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups)
 		std::cout << "} ";
 	}
 }
+*/
 
 void	printLabel(int sizeElement, int nbOfGroups)
 {
@@ -67,6 +70,7 @@ void	printLabel(int sizeElement, int nbOfGroups)
 	}
 }
 
+/*
 void	printPending(std::vector<std::pair<std::vector<int>, int> > pending)
 {
 	for (size_t i = 0; i < pending.size(); i++)
@@ -81,7 +85,9 @@ void	printPending(std::vector<std::pair<std::vector<int>, int> > pending)
 	}
 
 }
+*/
 
+/*
 void	printOdd(std::vector<int> vect, int sizeElement)
 { 
 	int	remainingSize;
@@ -99,6 +105,7 @@ void	printOdd(std::vector<int> vect, int sizeElement)
 	}
 	std::cout << std::endl;
 }
+*/
 
 /*
 void	printVect(std::vector<int> vect)
