@@ -20,3 +20,18 @@ int	checkInput(char *s, T &sequence)
 	return (0);
 }
 
+template <class T, class I>
+int	handleDuplicate(T &sequence, I it, char *buff)
+{
+	T tmp;
+	tmp.insert(tmp.begin(), sequence.begin(), sequence.end());
+	sort(tmp.begin(), tmp.end());
+	it = adjacent_find(tmp.begin(), tmp.end());
+	if (it != tmp.end())
+	{
+		if (buff)
+			delete [] buff;
+		return (1);
+	}
+	return (0);
+}

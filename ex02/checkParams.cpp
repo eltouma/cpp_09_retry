@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 17:06:16 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 17:13:06 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 17:17:23 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char    *isString(int argc, char **argv, char *input, char *&buff)
         return (input);
 }
 
+/*
 int	handleDuplicate(std::vector<int> vect, std::vector<int>::iterator it, char *buff)
 {
 	std::vector<int>	tmp;
@@ -78,3 +79,4 @@ int	handleDuplicate(std::vector<int> vect, std::vector<int>::iterator it, char *
 	}
 	return (0);
 }
+*/

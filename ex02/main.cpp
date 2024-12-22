@@ -6,7 +6,7 @@
 /*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:03:22 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 16:57:28 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 17:34:45 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,11 +194,13 @@ int	main(int argc, char **argv)
 	char	*input;
 	char	*buff;
 	std::vector<int>	vect;
-
 	std::vector<int>	pending;
-	std::vector<int>::iterator	it;
-
+	std::vector<int>::iterator	itV;
 	std::vector<int>	tmp;
+
+	std::deque<int>		deq;
+	std::deque<int>::iterator	itD;
+
 	input = NULL;
 	buff = NULL;
 	if (argc < 2)
@@ -219,7 +221,7 @@ int	main(int argc, char **argv)
 	std::cout << std::endl << std::endl;
 	if (vect.size() == 1)
 		return (std::cerr << "Error\nWrong amount of arguments" << std::endl, 1);
-	if (handleDuplicate(vect, it, buff))
+	if (handleDuplicate(vect, itV, buff))
 		return (std::cerr << "Error\nWrong input: duplicate" << std::endl, 1);
 	tmp.insert(tmp.begin(), vect.begin(), vect.end());
 	mergeInsert(vect, 1);
@@ -231,6 +233,13 @@ int	main(int argc, char **argv)
 	printVect(vect);
 	if (!isSorted(vect))
 		std::cout << "List is successfully sorted 🥳\n";
+	std::cout << "\n\n------------------------------------------------------------------------------------------------\n" << std::endl;
+	for (int i = 1; i <= 5; i++)
+		deq.push_back(i);
+	if (handleDuplicate(deq, itD, NULL))
+		return (std::cerr << "Error\nWrong input: duplicate" << std::endl, 1);
+	else
+		std::cerr << "Deque est triee" << std::endl;
 	if (buff)
 		delete [] buff;
 }
