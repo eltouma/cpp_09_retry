@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:08:34 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 20:36:10 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 23:27:55 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ template <
 >
 void	initPending(S &sequence, int sizeElement, OuterContainer<std::pair<InnerContainer<T, std::allocator<T> >, int>, std::allocator<std::pair<InnerContainer<T, std::allocator<T> >, int> > > &pending);
 
-template <class T>
-void	mergeInsert(T &sequence, int sizeElement);
+//template <class T>
+//void	mergeInsertVect(T &sequence, int sizeElement);
 
 template <typename T>
 typename T::iterator	binarySearch(typename T::iterator start, typename T::iterator end, int sizeElement, int valToFind);
@@ -70,6 +70,7 @@ char    *isString(int argc, char **argv, char *input, char *&buff);
 void	printLabel(int sizeElement, int nbOfGroups);
 void    draw_tab(const std::string& str);
 int	jacobNumber(int n);
+void	mergeInsertVect(std::vector<int> &sequence, int sizeElement);
 
 #include "checkParams.tpp"
 #include "print.tpp"

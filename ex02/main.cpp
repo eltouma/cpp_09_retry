@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:51 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 20:23:05 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 23:33:27 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ int	main(int argc, char **argv)
 	if (handleDuplicate(vect, itV, buff))
 		return (std::cerr << "Error\nWrong input: duplicate" << std::endl, 1);
 	tmp.insert(tmp.begin(), vect.begin(), vect.end());
-	mergeInsert(vect, 1);
+	mergeInsertVect(vect, 1);
 	std::cout << "\n\n------------------------------------------------------------------------------------------------\n" << std::endl;
 	draw_tab("Final result");
-	std::cout << "Original vector" << std::endl;
+	std::cout << "Original sequence" << std::endl;
 	printSequence(tmp);
-	std::cout << "Current vector" << std::endl;
+	std::cout << "Current sequence" << std::endl;
 	printSequence(vect);
 	if (!isSorted(vect))
-		std::cout << "List is successfully sorted 🥳\n";
+		std::cout << "Sequence is successfully sorted 🥳\n";
 	if (buff)
 		delete [] buff;
 
