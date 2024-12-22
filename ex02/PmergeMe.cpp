@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 20:37:20 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 23:55:50 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 23:59:29 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	mergeInsertVect(std::vector<int> &vect, int sizeElement)
 	else
 		return ;
 	std::cout << "------------------------------------------------------------------------------------------------\n" << std::endl;
-	draw_tab("Current sequence");
+	draw_tab("Current vector");
 	printGroup(vect, sizeElement, nbOfGroups);
 	printOdd(vect, sizeElement);
 	printLabel(sizeElement, nbOfGroups);
@@ -69,7 +69,7 @@ void	mergeInsertVect(std::vector<int> &vect, int sizeElement)
 		next_jacob -= 1;
 	}
 	std::cout << std::endl;
-	draw_tab("New sequence");
+	draw_tab("New vector");
 	printGroup(vect, sizeElement, nbOfGroups);
 	printOdd(vect, sizeElement);
 	printLabel(sizeElement, nbOfGroups);
@@ -90,7 +90,7 @@ void	mergeInsertDeq(std::deque<int> &deq, int sizeElement)
 	else
 		return ;
 	std::cout << "------------------------------------------------------------------------------------------------\n" << std::endl;
-	draw_tab("Current sequence");
+	draw_tab("Current deque");
 	printGroup(deq, sizeElement, nbOfGroups);
 	printOdd(deq, sizeElement);
 	printLabel(sizeElement, nbOfGroups);
@@ -127,7 +127,7 @@ void	mergeInsertDeq(std::deque<int> &deq, int sizeElement)
 		next_jacob -= 1;
 	}
 	std::cout << std::endl;
-	draw_tab("New sequence");
+	draw_tab("New deque");
 	printGroup(deq, sizeElement, nbOfGroups);
 	printOdd(deq, sizeElement);
 	printLabel(sizeElement, nbOfGroups);
