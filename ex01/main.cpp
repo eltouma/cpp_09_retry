@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 		while (input != NULL)
 		{
 			if (checkInput(input, lst))
-				return (1);
+				return (std::cerr << "Error\nInvalid RPN format" << std::endl, 1);
 			input = strtok(NULL, " ");
 		}
 		if (!lst.size())
