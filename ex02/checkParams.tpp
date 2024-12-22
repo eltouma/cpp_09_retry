@@ -35,3 +35,18 @@ int	handleDuplicate(T &sequence, I it, char *buff)
 	}
 	return (0);
 }
+
+template <class T>
+int	isSorted(T sequence)
+{
+	int	min;
+
+	min = sequence.at(0);
+	for (size_t it = 1; it != sequence.size(); it++)
+	{
+		if (min > sequence.at(it))
+			return (std::cerr << "Error\nUnsorted list" << std::endl, 1);
+		min = it;
+	}
+	return (0);
+}

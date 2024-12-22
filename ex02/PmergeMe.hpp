@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:08:34 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 18:42:57 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 20:36:10 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,38 @@ template <class T>
 void	printOdd(T sequence, int sizeElement);
 
 template <
-    template <class, class> class OuterContainer,
-    template <class, class> class InnerContainer,
-    class T
+	template <class, class> class OuterContainer,
+	template <class, class> class InnerContainer,
+	class T
 >
 void printPending(OuterContainer<std::pair<InnerContainer<T, std::allocator<T> >, int>, std::allocator<std::pair<InnerContainer<T, std::allocator<T> >, int> > > &pending);
+
+template <class T>
+int	isSorted(T sequence);
+
+template <class T>
+void	sortPairs(T &sequence, int sizeElement);
+
+template <
+	class S,
+	template <class, class> class OuterContainer,
+	template <class, class> class InnerContainer,
+	class T
+>
+void	initPending(S &sequence, int sizeElement, OuterContainer<std::pair<InnerContainer<T, std::allocator<T> >, int>, std::allocator<std::pair<InnerContainer<T, std::allocator<T> >, int> > > &pending);
+
+template <class T>
+void	mergeInsert(T &sequence, int sizeElement);
+
+template <typename T>
+typename T::iterator	binarySearch(typename T::iterator start, typename T::iterator end, int sizeElement, int valToFind);
 
 int	ft_strlen(char *str);
 char    *isString(int argc, char **argv, char *input, char *&buff);
 void	printLabel(int sizeElement, int nbOfGroups);
 void    draw_tab(const std::string& str);
-
-int	isSorted(std::vector<int> vect);
-void	mergeInsert(std::vector<int> &vect, int sizeElement);
-void	sortPairs(std::vector<int> &vect, int sizeElement);
-void	initPending(std::vector<int> &vect, int sizeElement, std::vector<std::pair<std::vector<int>, int> > &pending);
-std::vector<int>::iterator	binarySearch(std::vector<int>::iterator start, std::vector<int>::iterator end, int sizeElement, int valToFind);
 int	jacobNumber(int n);
 
 #include "checkParams.tpp"
 #include "print.tpp"
+#include "PmergeMe.tpp"

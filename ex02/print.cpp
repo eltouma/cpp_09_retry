@@ -6,15 +6,15 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:34:07 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 18:34:08 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 20:34:58 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "PmergeMe.hpp"
 
 /*
-void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups)
+template <class T>
+void	printGroup(T sequence, int sizeElement, int nbOfGroups)
 {
 	int	middle;
 	int	last;
@@ -26,17 +26,17 @@ void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups)
 			middle = sizeElement - 1;
 			last = sizeElement * 2 - 1;
 			if (sizeElement  > 1 && (j == middle || j == last))
-				std::cout << "\033[96m" << vect[i * sizeElement * 2 + j] << "\033[0m";
+				std::cout << "\033[96m" << sequence[i * sizeElement * 2 + j] << "\033[0m";
 			else
-				std::cout << vect[i * sizeElement * 2 + j];
+				std::cout << sequence[i * sizeElement * 2 + j];
 			if (j < sizeElement * 2 - 1)
 				std::cout << ", ";
 		}
 		std::cout << "} ";
 	}
 }
-*/
 
+*/
 void	printLabel(int sizeElement, int nbOfGroups)
 {
 	int	middle;
@@ -71,7 +71,12 @@ void	printLabel(int sizeElement, int nbOfGroups)
 }
 
 /*
-void	printPending(std::vector<std::pair<std::vector<int>, int> > pending)
+template <
+    template <class, class> class OuterContainer,
+    template <class, class> class InnerContainer,
+    class T
+>
+void	printPending(OuterContainer<std::pair<InnerContainer<T, std::allocator<T> >, int>, std::allocator<std::pair<InnerContainer<T, std::allocator<T> >, int> > > &pending)
 {
 	for (size_t i = 0; i < pending.size(); i++)
 	{
@@ -83,22 +88,22 @@ void	printPending(std::vector<std::pair<std::vector<int>, int> > pending)
 		}
 		std::cout << "\033[0m} ";
 	}
-
 }
 */
 
 /*
-void	printOdd(std::vector<int> vect, int sizeElement)
-{ 
+template <class T>
+void	printOdd(T sequence, int sizeElement)
+{
 	int	remainingSize;
 
-	remainingSize = vect.size() % (sizeElement * 2);
+	remainingSize = sequence.size() % (sizeElement * 2);
 	if (remainingSize > 0)
 	{
-		for (size_t i = vect.size() - remainingSize; i < vect.size(); ++i)
+		for (size_t i = sequence.size() - remainingSize; i < sequence.size(); ++i)
 		{
-			std::cout << "\033[1;90m" << vect[i];
-			if (i < vect.size() - 1)
+			std::cout << "\033[1;90m" << sequence[i];
+			if (i < sequence.size() - 1)
 				std::cout << ", ";
 			std::cout << "\033[0m";
 		}
@@ -108,14 +113,15 @@ void	printOdd(std::vector<int> vect, int sizeElement)
 */
 
 /*
-void	printVect(std::vector<int> vect)
+template <class T>
+void	printSequence(T sequence)
 {
-	for (size_t i = 0; i < vect.size(); i++)
-		std::cout << vect[i] << " ";
+	for (size_t i = 0; i < sequence.size(); i++)
+		std::cout << sequence[i] << " ";
 	std::cout << "\n\n";
 }
-*/
 
+*/
 void	draw_tab(const std::string& str)
 {
 	const int frame_width = 25;

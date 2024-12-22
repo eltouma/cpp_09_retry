@@ -6,13 +6,11 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:33:51 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 18:39:34 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 20:23:05 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include "checkParams.tpp"
-#include "print.tpp"
 
 int	main(int argc, char **argv)
 {
@@ -58,6 +56,10 @@ int	main(int argc, char **argv)
 	printSequence(vect);
 	if (!isSorted(vect))
 		std::cout << "List is successfully sorted 🥳\n";
+	if (buff)
+		delete [] buff;
+
+
 	std::cout << "\n\n------------------------------------------------------------------------------------------------\n" << std::endl;
 	for (int i = 1; i <= 5; i++)
 		deq.push_back(i);
@@ -68,6 +70,4 @@ int	main(int argc, char **argv)
 		printSequence(deq);
 		std::cerr << "Deque est triee" << std::endl;
 	}
-	if (buff)
-		delete [] buff;
 }

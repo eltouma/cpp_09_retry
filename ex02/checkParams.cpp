@@ -6,14 +6,15 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 17:06:16 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 17:17:23 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 20:33:36 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp" 
 
 /*
-int	checkInput(char *s, std::vector<int> &vect)
+template <class T>
+int	checkInput(char *s, T &sequence)
 {
 	std::string	str;
 	long	nb;
@@ -26,7 +27,7 @@ int	checkInput(char *s, std::vector<int> &vect)
 		return (1);
 	if (errno == ERANGE || nb < 0 || nb > INT_MAX)
 		return (1);
-	vect.push_back(nb);
+	sequence.push_back(nb);
 	return (0);
 }
 */
@@ -65,10 +66,11 @@ char    *isString(int argc, char **argv, char *input, char *&buff)
 }
 
 /*
-int	handleDuplicate(std::vector<int> vect, std::vector<int>::iterator it, char *buff)
+template <class T, class I>
+int	handleDuplicate(T &sequence, I it, char *buff)
 {
-	std::vector<int>	tmp;
-	tmp.insert(tmp.begin(), vect.begin(), vect.end());
+	T tmp;
+	tmp.insert(tmp.begin(), sequence.begin(), sequence.end());
 	sort(tmp.begin(), tmp.end());
 	it = adjacent_find(tmp.begin(), tmp.end());
 	if (it != tmp.end())
@@ -76,6 +78,21 @@ int	handleDuplicate(std::vector<int> vect, std::vector<int>::iterator it, char *
 		if (buff)
 			delete [] buff;
 		return (1);
+	}
+	return (0);
+}
+
+template <class T>
+int	isSorted(T sequence)
+{
+	int	min;
+
+	min = sequence.at(0);
+	for (size_t it = 1; it != sequence.size(); it++)
+	{
+		if (min > sequence.at(it))
+			return (std::cerr << "Error\nUnsorted list" << std::endl, 1);
+		min = it;
 	}
 	return (0);
 }
