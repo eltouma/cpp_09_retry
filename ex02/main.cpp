@@ -129,7 +129,7 @@ void	mergeInsert(std::vector<int> &vect, int sizeElement)
 		mergeInsert(vect, sizeElement * 2);
 	else
 		return ;
-	std::cout << "------------------------------------------------------------------------------------------------\n\n";
+	std::cout << "------------------------------------------------------------------------------------------------\n" << std::endl;
 	draw_tab("Current vector");
 	printGroup(vect, sizeElement, nbOfGroups);
 	printOdd(vect, sizeElement);
@@ -174,6 +174,20 @@ void	mergeInsert(std::vector<int> &vect, int sizeElement)
 	std::cout << std::endl;
 }
 
+int	isSorted(std::vector<int> vect)
+{
+	int	min;
+
+	min = vect.at(0);
+	for (size_t it = 1; it != vect.size(); it++)
+	{
+		if (min > vect.at(it))
+			return (std::cerr << "Error\nUnsorted list" << std::endl, 1);
+		min = it;
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	char	*input;
@@ -183,6 +197,7 @@ int	main(int argc, char **argv)
 	std::vector<int>	pending;
 	std::vector<int>::iterator	it;
 
+	std::vector<int>	tmp;
 	input = NULL;
 	buff = NULL;
 	if (argc < 2)
@@ -196,19 +211,25 @@ int	main(int argc, char **argv)
 		{
 			if (buff)
 				delete [] buff;
-			return (std::cerr << "Error\nWrong input" << std::endl, 1);
+			return (std::cerr << "\n\nError\nWrong input" << std::endl, 1);
 		}
 		input = strtok(NULL, " ");
 	}
-	std::cout << "\n\n";
+	std::cout << std::endl << std::endl;
 	if (vect.size() == 1)
 		return (std::cerr << "Error\nWrong amount of arguments" << std::endl, 1);
 	if (handleDuplicate(vect, it, buff))
 		return (std::cerr << "Error\nWrong input: duplicate" << std::endl, 1);
+	tmp.insert(tmp.begin(), vect.begin(), vect.end());
 	mergeInsert(vect, 1);
-	std::cout << "\nSorted list:\n";
-	for (it = vect.begin(); it != vect.end(); it++)
-		std::cout << *it << " ";
+	std::cout << "\n\n------------------------------------------------------------------------------------------------\n" << std::endl;
+	draw_tab("Final result");
+	std::cout << "Original vector" << std::endl;
+	printVect(tmp);
+	std::cout << "Current vector" << std::endl;
+	printVect(vect);
+	if (!isSorted(vect))
+		std::cout << "List is successfully sorted 🥳\n";
 	if (buff)
 		delete [] buff;
 }

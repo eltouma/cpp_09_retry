@@ -102,7 +102,6 @@ void	printOdd(std::vector<int> vect, int sizeElement)
 
 void	printVect(std::vector<int> vect)
 {
-	std::cout << "LE vect: " << std::endl;
 	for (size_t i = 0; i < vect.size(); i++)
 		std::cout << vect[i] << " ";
 	std::cout << "\n\n";
