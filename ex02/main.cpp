@@ -6,11 +6,12 @@
 /*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:03:22 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 01:13:01 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 16:57:28 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include "checkParams.tpp"
 
 int	jacobNumber(int n)
 {

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   checkParams.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 16:03:22 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/21 01:04:53 by eltouma          ###   ########.fr       */
+/*   Created: 2024/12/22 17:06:16 by eltouma           #+#    #+#             */
+/*   Updated: 2024/12/22 17:13:06 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp" 
 
+/*
 int	checkInput(char *s, std::vector<int> &vect)
 {
 	std::string	str;
@@ -28,6 +29,7 @@ int	checkInput(char *s, std::vector<int> &vect)
 	vect.push_back(nb);
 	return (0);
 }
+*/
 
 int	ft_strlen(char *str)
 {
@@ -76,4 +78,3 @@ int	handleDuplicate(std::vector<int> vect, std::vector<int>::iterator it, char *
 	}
 	return (0);
 }
-
