@@ -86,7 +86,7 @@ int	checkDate(std::string date)
 		if (day == LEAP && !isLeap(year))
 			return (4);
 		if (day > LEAP)
-			return (5);
+			return (6);
 		return (0);
 	}
 	if (day < MIN_DAY || (!(month % 2) && day > EVEN))
