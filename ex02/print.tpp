@@ -7,7 +7,6 @@ void	printSequence(T sequence)
 {
 	for (size_t i = 0; i < sequence.size(); i++)
 		std::cout << sequence[i] << " ";
-	std::cout << "\n\n";
 }
 
 template <class T>
@@ -57,7 +56,7 @@ template <
     template <class, class> class InnerContainer,
     class T
 >
-void printPending(OuterContainer<std::pair<InnerContainer<T, std::allocator<T> >, int>, std::allocator<std::pair<InnerContainer<T, std::allocator<T> >, int> > > &pending)
+void	printPending(OuterContainer<std::pair<InnerContainer<T, std::allocator<T> >, int>, std::allocator<std::pair<InnerContainer<T, std::allocator<T> >, int> > > &pending)
 {
 	for (size_t i = 0; i < pending.size(); i++)
 	{

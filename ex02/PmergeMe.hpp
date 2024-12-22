@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:08:34 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 23:42:50 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/23 00:07:42 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 #include <cmath>
 #include <algorithm>
 #include <deque>
+
+template <class T>
+int	parseInput(char *input, T &sequence, char *buff);
 
 template <class T>
 int	checkInput(char *s, T &sequence);

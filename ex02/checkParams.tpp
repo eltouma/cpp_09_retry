@@ -3,6 +3,25 @@
 #include "PmergeMe.hpp"
 
 template <class T>
+int	parseInput(char *input, T &sequence, char *buff)
+{
+	std::cout << "input = ";
+	while (input != NULL)
+	{
+		std::cout << input << " ";
+		if (checkInput(input, sequence))
+		{
+			if (buff)
+				delete [] buff;
+			return (std::cerr << "\n\nError\nWrong input" << std::endl, 1);
+		}
+		input = strtok(NULL, " ");
+	}
+	std::cout << std::endl << std::endl;
+	return (0);
+}
+
+template <class T>
 int	checkInput(char *s, T &sequence)
 {
 	std::string	str;
