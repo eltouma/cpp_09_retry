@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:08:34 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/21 04:20:49 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 01:16:42 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ void	printVect(std::vector<int> vect);
 void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups);
 void	printPending(std::vector<std::pair<std::vector<int>, int> > pending);
 void	printOdd(std::vector<int> vect, int sizeElement);
+//void	printLabel(std::vector<int> vect, int sizeElement);
+void	printLabel(std::vector<int> vect, int sizeElement, int nbOfGroups);
 void    draw_tab(const std::string& str);

@@ -6,7 +6,7 @@
 /*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:03:22 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/21 05:25:50 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 01:24:43 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,41 @@ void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups)
 			middle = sizeElement - 1;
 			last = sizeElement * 2 - 1;
 			if (sizeElement > 1 && (j == middle || j == last))
-//			if (j == middle || j == last)
 				std::cout << "\033[96m" << vect[i * sizeElement * 2 + j] << "\033[0m";
-//			else if (sizeElement == 1)
-//				std::cout << "\033[96m" << vect[i * sizeElement * 2] << "\033[0m";
 			else
 				std::cout << vect[i * sizeElement * 2 + j];
 			if (j < sizeElement * 2 - 1)
 				std::cout << ", ";
 		}
 		std::cout << "} ";
+	}
+}
+
+void	printLabel(std::vector<int> vect, int sizeElement, int nbOfGroups)
+{
+	(void)vect;
+	int	middle;
+	int	last;
+	int	a;
+	int	b;
+
+	std::cout << "sizeElement: " << sizeElement << " nbOfGroups: " << nbOfGroups << "\n";
+	a = 1;
+	b = 1;
+	for (int i = 0; i < nbOfGroups; i++)
+	{
+		for (int j = 0; j < nbOfGroups * 2; j++)
+		{
+			middle = sizeElement - 1;
+			last = sizeElement * 2 - 1;
+			std::cout << " ";
+			if (sizeElement > 1 &&  j == middle)
+				std::cout << "\033[94mb" << b << "  \033[0m";
+			if (sizeElement > 1 &&  j == middle)
+				std::cout << "\033[94ma" << a << "  \033[0m";
+		}
+		a += 1;
+		b += 2;
 	}
 }
 

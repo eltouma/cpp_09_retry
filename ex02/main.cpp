@@ -6,7 +6,7 @@
 /*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:03:22 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/21 05:21:57 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/22 01:13:01 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ void	mergeInsert(std::vector<int> &vect, int sizeElement)
 	draw_tab("Current vector");
 	printGroup(vect, sizeElement, nbOfGroups);
 	printOdd(vect, sizeElement);
+	printLabel(vect, sizeElement, nbOfGroups);
 	initPending(vect, sizeElement, pending, nbOfGroups);
 	if (!pending.size())
 		std::cout << "No pend - no insertions. Move on" << std::endl;
