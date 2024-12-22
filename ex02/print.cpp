@@ -16,7 +16,6 @@ void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups)
 {
 	int	middle;
 	int	last;
-//	std::cout << "sizeElement: " << sizeElement << " nbOfGroups: " << nbOfGroups << "\n";
 	for (int i = 0; i < nbOfGroups; i++)
 	{
 		std::cout << "{";
@@ -35,9 +34,8 @@ void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups)
 	}
 }
 
-void	printLabel(std::vector<int> vect, int sizeElement, int nbOfGroups)
+void	printLabel(int sizeElement, int nbOfGroups)
 {
-	(void)vect;
 	int	middle;
 	int	last;
 	int	a;
@@ -51,13 +49,13 @@ void	printLabel(std::vector<int> vect, int sizeElement, int nbOfGroups)
 		{
 			middle = sizeElement - 1;
 			last = sizeElement * 2 - 1;
-			if (sizeElement > 1 && j == middle)
+			if (j == middle)
 			{
 				for (int k = 0; k < (middle * nbOfGroups) * sizeElement / 2 -  1; k++)
 					std::cout << " ";
 				std::cout << "\033[94mb" << b << "\033[0m";
 			}
-			if (sizeElement > 1 && j == last)
+			if (j == last)
 			{
 				for (int k = middle; k < (middle * nbOfGroups) * sizeElement / 2 + 2; k++)
 					std::cout << " ";

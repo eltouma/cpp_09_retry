@@ -30,6 +30,5 @@ void	printVect(std::vector<int> vect);
 void	printGroup(std::vector<int> vect, int sizeElement, int nbOfGroups);
 void	printPending(std::vector<std::pair<std::vector<int>, int> > pending);
 void	printOdd(std::vector<int> vect, int sizeElement);
-//void	printLabel(std::vector<int> vect, int sizeElement);
-void	printLabel(std::vector<int> vect, int sizeElement, int nbOfGroups);
+void	printLabel(int sizeElement, int nbOfGroups);
 void    draw_tab(const std::string& str);
