@@ -5,7 +5,7 @@
 template <typename T>
 typename T::iterator	binarySearch(typename T::iterator start, typename T::iterator end, int sizeElement, int valToFind)
 {
-	std::vector<int>::iterator	it;
+	typename T::iterator	it;
 	size_t	mid;
 
 	mid  = std::distance(start, end) / sizeElement / 2;
@@ -35,8 +35,8 @@ void	initPending(S &sequence, int sizeElement, OuterContainer<std::pair<InnerCon
 {
 	int	nbElements;
 	int	nbElementsToPush;
-	std::vector<int>::iterator firstValGroup;
-	std::vector<int>::iterator lastValGroup;
+	typename S::iterator firstValGroup;
+	typename S::iterator lastValGroup;
 
 	nbElements = sequence.size() / sizeElement;
 	nbElementsToPush = (nbElements / 2) - 1;
@@ -47,7 +47,8 @@ void	initPending(S &sequence, int sizeElement, OuterContainer<std::pair<InnerCon
 		return ;
 	for (int i = 0; i < nbElementsToPush; i++)
 	{
-		std::pair<std::vector<int>, int> tmpPair;
+		typename OuterContainer<std::pair<InnerContainer<T, std::allocator<T> >, int>, std::allocator<std::pair<InnerContainer<T, std::allocator<T> >, int> > >::value_type tmpPair;
+//		std::pair<std::vector<int>, int> tmpPair;
 		lastValGroup = firstValGroup + sizeElement - 1;
 		tmpPair.first.insert(tmpPair.first.begin(), firstValGroup, lastValGroup + 1);
 		if (sequence.end() - 1 != lastValGroup)
