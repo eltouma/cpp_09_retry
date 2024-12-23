@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:34:07 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 21:35:07 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/23 01:39:14 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,31 @@ void	printLabel(int sizeElement, int nbOfGroups)
 	}
 }
 
+void	printTime(size_t parsingTime, size_t sortTime, std::string name)
+{
+	std::cout << "Parsing time for " << name << " " << parsingTime << " microseconds" << std::endl;
+	std::cout << "Sorting time for " << name << " " << sortTime << " microseconds" << std::endl;
+}
+
+void	printResult(std::vector<int> vect, std::vector<int> tmpV, std::deque<int> deq, std::deque<int> tmpD, size_t parsingTime, size_t sortTime)
+{
+	std::cout << "\n\n------------------------------------------------------------------------------------------------\n" << std::endl;
+	draw_tab("Final result");
+	std::cout << "Original vector" << std::endl;
+	printSequence(tmpV);
+	std::cout << "\n\nCurrent vector" << std::endl;
+	printSequence(vect);
+	if (!isSorted(vect))
+		std::cout << "\nVector is \033[32msuccessfully\033[0m sorted 🥳\n\n" << std::endl;
+	printTime(parsingTime, sortTime, "vector:");
+	std::cout << "\n\nOriginal deque" << std::endl;
+	printSequence(tmpD);
+	std::cout << "\n\nCurrent deque" << std::endl;
+	printSequence(deq);
+	if (!isSorted(deq))
+		std::cout << "\nDeque is \033[32msuccessfully\033[0m sorted 🥳\n\n" << std::endl;
+	printTime(parsingTime, sortTime, "deque:");
+}
 void	draw_tab(const std::string& str)
 {
 	const int frame_width = 25;

@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:08:34 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/23 00:07:42 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/23 01:37:08 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <sys/time.h>
 #include <deque>
 
 template <class T>
@@ -68,6 +69,8 @@ typename T::iterator	binarySearch(typename T::iterator start, typename T::iterat
 int	ft_strlen(char *str);
 char    *isString(int argc, char **argv, char *input, char *&buff);
 void	printLabel(int sizeElement, int nbOfGroups);
+void	printTime(size_t parsingTime, size_t sortTime, std::string name);
+void	printResult(std::vector<int> vect, std::vector<int> tmpV, std::deque<int> deq, std::deque<int> tmpD, size_t parsingTime, size_t sortTime);
 void    draw_tab(const std::string& str);
 int	jacobNumber(int n);
 void	mergeInsertVect(std::vector<int> &sequence, int sizeElement);
