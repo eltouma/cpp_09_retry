@@ -12,8 +12,6 @@
 
 #include "PmergeMe.hpp"
 
-
-
 int	main(int argc, char **argv)
 {
 	char	*input;
@@ -38,7 +36,8 @@ int	main(int argc, char **argv)
 	draw_tab("TEST VECTOR");
 	gettimeofday(&startTime, NULL);
 	input = isString(argc, argv, input, buff);
-	parseInput(input, vect, buff);
+	if (parseInput(input, vect, buff))
+		return (1);
 	if (vect.size() == 1)
 		return (std::cerr << "Error\nWrong amount of arguments" << std::endl, 1);
 	if (handleDuplicate(vect, itV, buff))
@@ -57,10 +56,6 @@ int	main(int argc, char **argv)
 	gettimeofday(&startTime, NULL);
 	input = isString(argc, argv, input, buff);
 	parseInput(input, deq, buff);
-	if (deq.size() == 1)
-		return (std::cerr << "Error\nWrong amount of arguments" << std::endl, 1);
-	if (handleDuplicate(deq, itD, buff))
-		return (std::cerr << "Error\nWrong input: duplicate" << std::endl, 1);
 	tmpD.insert(tmpD.begin(), deq.begin(), deq.end());
 	gettimeofday(&endTime, NULL);
 	parsingTime = (endTime.tv_sec - startTime.tv_sec) * 1000000 + (endTime.tv_usec - startTime.tv_usec);
