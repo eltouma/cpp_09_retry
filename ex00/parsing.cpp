@@ -95,10 +95,3 @@ int	checkDate(std::string date)
 		return (6);
 	return (0);
 }
-
-int	handleFileError(std::ifstream *file)
-{
-	if (!file->is_open())
-		return (std::cerr << "Error: could not open file." << std::endl, 1);
-	return (0); 
-}
