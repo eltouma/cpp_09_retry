@@ -17,17 +17,16 @@ int	main(int argc, char **argv)
 	char	*input;
 	char	*buff;
 	std::vector<int>	vect;
-	std::vector<int>::iterator	itV;
 	std::vector<int>	tmpV;
-
 	std::deque<int>		deq;
-	std::deque<int>::iterator	itD;
 	std::deque<int>	tmpD;
-
+	std::vector<int>::iterator	it;
 	timeval startTime;
 	timeval endTime;
-	size_t	parsingTime;
-	size_t	sortTime;
+	size_t	parsingTimeV;
+	size_t	sortTimeV;
+	size_t	parsingTimeD;
+	size_t	sortTimeD;
 
 	input = NULL;
 	buff = NULL;
@@ -40,15 +39,15 @@ int	main(int argc, char **argv)
 		return (1);
 	if (vect.size() == 1)
 		return (std::cerr << "Error\nWrong amount of arguments" << std::endl, 1);
-	if (handleDuplicate(vect, itV, buff))
+	if (handleDuplicate(vect, it, buff))
 		return (std::cerr << "Error\nWrong input: duplicate" << std::endl, 1);
 	tmpV.insert(tmpV.begin(), vect.begin(), vect.end());
 	gettimeofday(&endTime, NULL);
-	parsingTime = (endTime.tv_sec - startTime.tv_sec) * 1000000 + (endTime.tv_usec - startTime.tv_usec);
+	parsingTimeV = (endTime.tv_sec - startTime.tv_sec) * 1000000 + (endTime.tv_usec - startTime.tv_usec);
 	gettimeofday(&startTime, NULL);
 	mergeInsertVect(vect, 1);
 	gettimeofday(&endTime, NULL);
-	sortTime = (endTime.tv_sec - startTime.tv_sec) * 1000000 + (endTime.tv_usec - startTime.tv_usec);
+	sortTimeV = (endTime.tv_sec - startTime.tv_sec) * 1000000 + (endTime.tv_usec - startTime.tv_usec);
 	if (buff)
 		delete [] buff;
 	std::cout << "\n\n------------------------------------------------------------------------------------------------\n" << std::endl;
@@ -58,12 +57,13 @@ int	main(int argc, char **argv)
 	parseInput(input, deq, buff);
 	tmpD.insert(tmpD.begin(), deq.begin(), deq.end());
 	gettimeofday(&endTime, NULL);
-	parsingTime = (endTime.tv_sec - startTime.tv_sec) * 1000000 + (endTime.tv_usec - startTime.tv_usec);
+	parsingTimeD = (endTime.tv_sec - startTime.tv_sec) * 1000000 + (endTime.tv_usec - startTime.tv_usec);
 	gettimeofday(&startTime, NULL);
 	mergeInsertDeq(deq, 1);
 	gettimeofday(&endTime, NULL);
-	sortTime = (endTime.tv_sec - startTime.tv_sec) * 1000000 + (endTime.tv_usec - startTime.tv_usec);
-	printResult(vect, tmpV, deq, tmpD, parsingTime, sortTime);
+	sortTimeD = (endTime.tv_sec - startTime.tv_sec) * 1000000 + (endTime.tv_usec - startTime.tv_usec);
+	printResultVector(vect, tmpV, parsingTimeV, sortTimeV);
+	printResultDeque(deq, tmpD, parsingTimeD, sortTimeD);
 	if (buff)
 		delete [] buff;
 }

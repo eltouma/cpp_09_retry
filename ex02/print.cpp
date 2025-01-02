@@ -51,7 +51,7 @@ void	printTime(size_t parsingTime, size_t sortTime, std::string name)
 	std::cout << "Sorting time for " << name << " " << sortTime << " microseconds" << std::endl;
 }
 
-void	printResult(std::vector<int> vect, std::vector<int> tmpV, std::deque<int> deq, std::deque<int> tmpD, size_t parsingTime, size_t sortTime)
+void	printResultVector(std::vector<int> vect, std::vector<int> tmpV, size_t parsingTime, size_t sortTime)
 {
 	std::cout << "\n\n------------------------------------------------------------------------------------------------\n" << std::endl;
 	draw_tab("Final result");
@@ -62,6 +62,10 @@ void	printResult(std::vector<int> vect, std::vector<int> tmpV, std::deque<int> d
 	if (!isSorted(vect))
 		std::cout << "\nVector is \033[32msuccessfully\033[0m sorted 🥳\n\n" << std::endl;
 	printTime(parsingTime, sortTime, "vector:");
+}
+
+void	printResultDeque(std::deque<int> deq, std::deque<int> tmpD, size_t parsingTime, size_t sortTime)
+{
 	std::cout << "\n\nOriginal deque" << std::endl;
 	printSequence(tmpD);
 	std::cout << "\n\nCurrent deque" << std::endl;
@@ -70,6 +74,7 @@ void	printResult(std::vector<int> vect, std::vector<int> tmpV, std::deque<int> d
 		std::cout << "\nDeque is \033[32msuccessfully\033[0m sorted 🥳\n\n" << std::endl;
 	printTime(parsingTime, sortTime, "deque:");
 }
+
 void	draw_tab(const std::string& str)
 {
 	const int frame_width = 25;
