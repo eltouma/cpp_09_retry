@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:03:22 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 01:05:55 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/12/23 02:03:01 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,13 @@ int	checkInput(char *s, std::list<double> &lst)
 		lst.push_back(result);
 		return (0);
 	}
-	errno = 0;
 	nb = strtol(str.c_str(), &endptr, 10);
 	if (endptr == str.c_str() || *endptr != '\0')
-		return (std::cerr << "Error\nBad input" << std::endl, 1);
-	if (errno == ERANGE || nb < INT_MIN)
-		return (std::cerr << "Error\nOut of range" << std::endl, 1);
+		throw std::invalid_argument("Error\nBad input");
+	if (nb < INT_MIN)
+		throw std::invalid_argument("Error\nOut of range");
 	if (nb > 9)
-		return (std::cerr << "Error\nGreater than or equal to 10" << std::endl, 1);
+		throw std::invalid_argument("Error\nGreater than or equal to 10");
 	lst.push_back(nb);
 	return (0);
 }
