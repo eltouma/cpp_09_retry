@@ -6,7 +6,7 @@
 /*   By: eltouma <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 20:37:20 by eltouma           #+#    #+#             */
-/*   Updated: 2024/12/22 23:59:29 by eltouma          ###   ########.fr       */
+/*   Updated: 2025/01/10 18:34:49 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,14 @@ void	mergeInsertVect(std::vector<int> &vect, int sizeElement)
 	std::cout << std::endl;
 	int	prev_jacob = 1;
 	int	next_jacob = jacobNumber(jacobIn);
-	jacobIn++;
 	size_t	insertIndex;
 	while (pending.size())
 	{
 		if (next_jacob <= prev_jacob)
 		{
-			prev_jacob = next_jacob;
-			next_jacob = jacobNumber(jacobIn);
+			prev_jacob = jacobNumber(jacobIn);
 			jacobIn++;
+			next_jacob = jacobNumber(jacobIn);
 		}
 		insertIndex = next_jacob - prev_jacob;
 		if (insertIndex > pending.size())
